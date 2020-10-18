@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/index.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/toastr.css')}}">
     {{-- <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.2.0/dist/jBox.all.min.css" rel="stylesheet"> --}}
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         $(".user-login-show").on("click", function() {
         let status = $(".profile-dropdown-box").css("display");
