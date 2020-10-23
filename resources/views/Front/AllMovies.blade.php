@@ -20,9 +20,9 @@
         </a>
     </h3>
    
-        <div class="slick">
+        <div class="row flex-nowrap">
             @foreach ($newmovies as $movie)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$movie,'ajax'=>1])
                 @endcomponent
             </div>
@@ -45,9 +45,9 @@
         </a>
     </h3>
    
-      <div class="slick">
+      <div class="row flex-nowrap">
             @foreach ($latestdoble as $post)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$post , 'ajax'=>1])
                 @endcomponent
             </div>
@@ -71,10 +71,10 @@
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-   <div class="slick">
+   <div class="row flex-nowrap">
       
             @foreach ($newyear as $post)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$post , 'ajax'=>1])
                 @endcomponent
             </div>
@@ -100,10 +100,10 @@
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-   <div class="slick">
+   <div class="row flex-nowrap">
        
             @foreach ($category as $animation)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$animation , 'ajax'=>1])
                 @endcomponent
             </div>
@@ -132,10 +132,10 @@
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-   <div class="slick">
+   <div class="row flex-nowrap">
        
             @foreach ($top250 as $post)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$post , 'ajax'=>1])
                 @endcomponent
             </div>

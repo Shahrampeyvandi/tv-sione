@@ -1,7 +1,7 @@
 <section class="slider d-block d-md-none">
     <div class="swiper-container mobile-slider d-block d-md-none">
         <div class="swiper-wrapper">
-            <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           
             <div class="swiper-slide" style="background-image:url('<?php echo e(asset($slider->image)); ?>');
                 background-size: cover;height:300px;position:relative;margin-bottom: 45px;
                 ">
@@ -14,7 +14,7 @@
                     </a>
                 </div>
             </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     
            
 
         </div>

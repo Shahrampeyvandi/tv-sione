@@ -111,15 +111,7 @@
                             </a>
                         </li>
 
-                         <li>
-                        <a href="{{route('MovieRequest')}}">
-                                <i class="fa fa-film"></i>
-                                <span>
-                                    درخواست فیلم
-                                </span>
-                            </a>
-                        </li>
-                      
+                        
                         <li>
                             <a href="{{route('logout-user')}}">
                                 <i class="fa fa-power-off"></i>

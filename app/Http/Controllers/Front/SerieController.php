@@ -45,11 +45,11 @@ class SerieController extends Controller
         }
         $data['updated_series'] = Post::where(['type' => $type, 'comming_soon' => 0])->whereHas('episodes', function ($q) {
             $q->where('created_at', '>', Carbon::now()->subDays(15));
-        })->latest()->take(10)->get();
+        })->latest()->take(7)->get();
 
-        $data['newseries'] = Post::where(['type' => $type, 'comming_soon' => 0])->latest()->take(10)->get();
+        $data['newseries'] = Post::where(['type' => $type, 'comming_soon' => 0])->latest()->take(7)->get();
 
-        $data['sliders'] = Slider::LastSliders($type);
+        $data['slider'] = Slider::LastSliders($type);
        
 
         return view('Front.AllSeries', $data);

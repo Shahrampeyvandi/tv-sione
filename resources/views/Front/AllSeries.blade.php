@@ -18,10 +18,10 @@
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-    <div class="slick">
+    <div class="row flex-nowrap">
        
             @foreach ($updated_series as $serie)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
             @component('components.article',['model'=>$serie , 'ajax'=>1,'updated'=>1])
             @endcomponent
             </div>
@@ -29,8 +29,7 @@
 
        
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -45,10 +44,10 @@
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-   <div class="slick">
+   <div class="row flex-nowrap">
 
             @foreach ($newseries as $post)
-            <div class="mx-2">
+            <div class="mx-2 mw-180">
                 @component('components.article',['model'=>$post, 'ajax'=>1])
                 @endcomponent
             </div>

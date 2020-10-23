@@ -2,15 +2,27 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
+    <meta charset="UTF-8">
+    <meta name="_token" content="{{ csrf_token() }}">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> sione | @yield('Title')</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('assets/vendors/range-slider/css/ion.rangeSlider.min.css')}}" type="text/css">
 
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/index.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/toastr.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    {{-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> --}}
+    <link rel="stylesheet" type="text/css" media="all" href="{{asset('frontend/assets/css/all.min.css')}}">
+    <link rel="stylesheet" type="text/css" media="all" href="https://sione.live/frontend/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{asset('assets/css/toastr.css')}}">
     {{-- <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.2.0/dist/jBox.all.min.css" rel="stylesheet"> --}}
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
@@ -24,30 +36,35 @@
     });
     </script>
 
-    <style>
-        .show {
+    
+    @yield('css')
+    <script>
+        var mainUrl = "{{route('MainUrl')}}";
+    </script>
+
+    
+</head>
+<style>
+    .mw-180{
+        max-width: 15%;
+    }
+     .show {
             display: block !important;
         }
 
         .hidden {
             display: none !important;
         }
-    </style>
-
-    @yield('css')
-    <script>
-        var mainUrl = "{{route('MainUrl')}}";
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="_token" content="{{ csrf_token() }}">
-
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> sione | @yield('Title')</title>
-</head>
-<style>
+         
+    /*Login register page*/
+    
+.main_login_register{
+    box-shadow: 0 10rem 2rem 2rem inset rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height:100%;
+    padding: 2rem;
+    background-size: 100%;
+}
     .movie-sections h3 a {
         opacity: 100%;
         color: white;
@@ -106,10 +123,12 @@
     <script src="{{asset('frontend/assets/js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('assets/vendors/jquery-validate/jquery.validate.js')}}"></script>
     <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
     <script src="{{asset('frontend/assets/js/all.min.js')}}"></script>
     {{-- <script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.2.0/dist/jBox.all.min.js"></script> --}}
     {{-- <script src="{{asset('frontend/assets/js/index.js')}}"></script> --}}
+    {{-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
 
     <script src="{{asset('assets/js/toastr.min.js')}}"></script>
     <!-- begin::range slider -->
@@ -125,8 +144,7 @@
     var delay = 1000; // 2 seconds
 
     $("#search-input").on("keyup", function() {
-        var timeout = true;
-        if (timeout) {
+        
             
                 arr = [];
                 let val = $(this).val();
@@ -141,7 +159,7 @@ data = { data: arr, _token: token }
                 timeout = true;
             });
           
-            }
+            
     });
      $("#search-box").on("click", function() {
         $(".search-panel").css("display", "block");
@@ -152,46 +170,55 @@ data = { data: arr, _token: token }
 
 
 
-$(".slick").slick({
-  // normal options...
-  infinite: false,
-//  infinite: true,
-  slidesToShow: 6,
-  slidesToScroll: 6,
-  rtl:true,
-  // the magic
-  responsive: [{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        infinite: true
-      }
-    }, {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        dots: true
-      }
+// $(".slick").slick({
+//   // normal options...
+//   infinite: false,
+// //  infinite: true,
+//   slidesToShow: 6,
+//   slidesToScroll: 6,
+//   rtl:true,
+//   // the magic
+//   responsive: [{
+//       breakpoint: 1024,
+//       settings: {
+//         slidesToShow: 3,
+//         infinite: true
+//       }
+//     }, {
+//       breakpoint: 600,
+//       settings: {
+//         slidesToShow: 2,
+//         dots: true
+//       }
 
-    }, {
+//     }, {
 
-      breakpoint: 300,
-      settings: "unslick" // destroys slick
+//       breakpoint: 300,
+//       settings: "unslick" // destroys slick
 
-    }]
-});
+//     }]
+// });
+
+// $('.owl-carousel').owlCarousel({
+//     nav:true,
+//     items:1,
+//     rtl:true,
+//     loop:true,
+//     dots:false
+   
+// })
 
 
-
-$('.fadeslick').slick({
-    slidesToShow: 1,
-     slidesToScroll: 1,
-  rtl:true,
-  nav:true,
-    nextArrow: '<button class="custom-next"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-    prevArrow: '<button class="custom-prev"><i class="fa fa-angle-right" aria-hidden="true"></i></button>'
+// $('.fadeslick').slick({
+//     slidesToShow: 1,
+//      slidesToScroll: 1,
+//   rtl:true,
+//   nav:true,
+//     nextArrow: '<button class="custom-next"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
+//     prevArrow: '<button class="custom-prev"><i class="fa fa-angle-right" aria-hidden="true"></i></button>'
     
-})
+// })
+
 function showImage(event) {
     event.preventDefault();
     var src = $(event.target).attr("src");

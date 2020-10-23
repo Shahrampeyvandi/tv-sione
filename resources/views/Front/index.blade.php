@@ -14,22 +14,22 @@
 <section class="movie-sections">
     <h3>
         تازه های سیوان
-    <a href="{{route('S.ShowMore')}}?c=newsione&type=all">
+        <a href="{{route('S.ShowMore')}}?c=newsione&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($newsione as $new)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($newsione as $new)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$new , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-      
-     @component('components.showDetail')
+        @endforeach
+
+    </div>
+
+    @component('components.showDetail')
     @endcomponent
 </section>
 @endif
@@ -37,25 +37,21 @@
 <section class="movie-sections">
     <h3>
         سریال ها و مستندهای به روز شده
-    <a href="{{route('S.ShowMore')}}?c=updated&type=serie">
+        <a href="{{route('S.ShowMore')}}?c=updated&type=serie">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($updated_series as $serie)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($updated_series as $serie)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$serie , 'ajax'=>1,'updated'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -63,52 +59,44 @@
 <section class="movie-sections">
     <h3>
         فیلم های دوبله بدون سانسور
-    <a href="{{route('S.ShowMore')}}?c=doble&type=all">
+        <a href="{{route('S.ShowMore')}}?c=doble&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($latestdoble as $post)
-            <div class="mx-2">
-                @component('components.article',['model'=>$post , 'ajax'=>1,'doble'=>1])
+    <div class="row flex-nowrap">
+        @foreach ($latestdoble as $post)
+        <div class=" mx-2 mw-180">
+            @component('components.article',['model'=>$post , 'ajax'=>1,'doble'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-    @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
 
-@if (isset($newyear) &&  count($newyear))
+@if (isset($newyear) && count($newyear))
 <section class="movie-sections">
     <h3>
-         {{$year}}
-    <a href="{{route('S.ShowMore')}}?c={{$year}}&type=all">
+        {{$year}}
+        <a href="{{route('S.ShowMore')}}?c={{$year}}&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($newyear as $post)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($newyear as $post)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$post , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-    @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -116,26 +104,22 @@
 @if (isset($newseries) && count($newseries))
 <section class="movie-sections">
     <h3>
-       سریال
-    <a href="{{route('S.ShowMore')}}?c=new&type=serie">
+        سریال
+        <a href="{{route('S.ShowMore')}}?c=new&type=serie">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($newseries as $serie)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($newseries as $serie)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$serie , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -144,25 +128,21 @@
 <section class="movie-sections">
     <h3>
         انیمیشن
-    <a href="{{route('S.ShowMore')}}?c=animation&type=all">
+        <a href="{{route('S.ShowMore')}}?c=animation&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($animations as $animation)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($animations as $animation)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$animation , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -172,25 +152,21 @@
 <section class="movie-sections">
     <h3>
         ابر قهرمانی
-    <a href="{{route('S.ShowMore')}}?c=sci-fi&type=all">
+        <a href="{{route('S.ShowMore')}}?c=sci-fi&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($scifis as $scifi)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($scifis as $scifi)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$scifi , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -199,52 +175,44 @@
 <section class="movie-sections">
     <h3>
         مستند
-    <a href="{{route('S.ShowMore')}}?c=new&type=documentary">
+        <a href="{{route('S.ShowMore')}}?c=new&type=documentary">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($documentaries as $documentary)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($documentaries as $documentary)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$documentary , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
-@if (isset($collections) &&  count($collections))
+@if (isset($collections) && count($collections))
 <section class="movie-sections">
     <h3>
-         مجموعه فیلم ها
-    <a href="{{route('S.ShowMore')}}?c=collections&type=all">
+        مجموعه فیلم ها
+        <a href="{{route('S.ShowMore')}}?c=collections&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-  
-        <div class="slick">
-          @foreach ($collections as $collection)
-               <div class="mx-2">
+
+    <div class="row flex-nowrap">
+        @foreach ($collections as $collection)
+        <div class=" mx-2 ">
             @component('components.collection',['collection'=>$collection , 'ajax'=>1])
             @endcomponent
-            </div>
-          @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-    @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -253,25 +221,21 @@
 <section class="movie-sections">
     <h3>
         اکشن
-    <a href="{{route('S.ShowMore')}}?c=action&type=all">
+        <a href="{{route('S.ShowMore')}}?c=action&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($actions as $action)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($actions as $action)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$action , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -279,25 +243,21 @@
 <section class="movie-sections">
     <h3>
         ترسناک
-    <a href="{{route('S.ShowMore')}}?c=horror&type=all">
+        <a href="{{route('S.ShowMore')}}?c=horror&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($horrors as $horror)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($horrors as $horror)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$horror , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
@@ -305,88 +265,53 @@
 <section class="movie-sections">
     <h3>
         کمدی
-    <a href="{{route('S.ShowMore')}}?c=comedy&type=all">
+        <a href="{{route('S.ShowMore')}}?c=comedy&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($comedies as $comedy)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($comedies as $comedy)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$comedy , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-     @component('components.showDetail')
-    @endcomponent
+
 </section>
 @endif
 
 
-@if (isset($top250) &&  count($top250))
+@if (isset($top250) && count($top250))
 <section class="movie-sections">
     <h3>
-         برترین فیلم های Imdb
-    <a href="{{route('S.ShowMore')}}?c=top250&type=all">
+        برترین فیلم های Imdb
+        <a href="{{route('S.ShowMore')}}?c=top250&type=all">
             مشاهده همه
             <i class="fa fa-angle-left"></i>
         </a>
     </h3>
-        <div class="slick">
-            @foreach ($top250 as $post)
-            <div class="mx-2">
+    <div class="row flex-nowrap">
+        @foreach ($top250 as $post)
+        <div class=" mx-2 mw-180">
             @component('components.article',['model'=>$post , 'ajax'=>1])
             @endcomponent
-            </div>
-            @endforeach
-
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        @endforeach
+
     </div>
-    @component('components.showDetail')
-    @endcomponent
+
+
 </section>
 @endif
 
-<!-- last blogs -->
 
-@if (isset($blogs) &&  count($blogs))
-<section class="movie-sections">
-    <h3>
-         تازه ترین وبلاگ ها
-     <a href="{{route('S.ShowMore')}}?c=blogs&type=all">
-            مشاهده همه
-            <i class="fa fa-angle-left"></i>
-        </a> 
-    </h3>
-    <div class="swiper-container BlogSlider">
-        <div class="swiper-wrapper">
-          @foreach ($blogs as $blog)
-               <div class="swiper-slide">
-            @component('components.blog-item',['blog'=>$blog , 'ajax'=>1])
-            @endcomponent
-            </div>
-          @endforeach
 
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    @component('components.showDetail')
-    @endcomponent
-</section>
-@endif 
- 
 
 
 
 
 
 @endsection
-

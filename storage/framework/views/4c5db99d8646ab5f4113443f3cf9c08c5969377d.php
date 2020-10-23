@@ -99,15 +99,7 @@
                             </a>
                         </li>
 
-                         <li>
-                        <a href="<?php echo e(route('MovieRequest')); ?>">
-                                <i class="fa fa-film"></i>
-                                <span>
-                                    درخواست فیلم
-                                </span>
-                            </a>
-                        </li>
-                      
+                        
                         <li>
                             <a href="<?php echo e(route('logout-user')); ?>">
                                 <i class="fa fa-power-off"></i>

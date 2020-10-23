@@ -1,7 +1,7 @@
 <section class="slider d-block d-md-none">
     <div class="swiper-container mobile-slider d-block d-md-none">
         <div class="swiper-wrapper">
-            @foreach ($sliders as $slider)
+           
             <div class="swiper-slide" style="background-image:url('{{asset($slider->image)}}');
                 background-size: cover;height:300px;position:relative;margin-bottom: 45px;
                 ">
@@ -14,7 +14,7 @@
                     </a>
                 </div>
             </div>
-            @endforeach
+     
            
 
         </div>

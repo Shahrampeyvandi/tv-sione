@@ -28,11 +28,13 @@ class Slider extends Model
      
     $sliders = static::whereHas('post',function($q)use($type){
       $q->where('type',$type);
-    })->latest()->take(5)->get();
-    if(count($sliders)){
+    })->inRandomOrder()->first();
+           
+
+    if($sliders){
        return $sliders;
     }else{
-     return static::latest()->take(5)->get();
+     return static::inRandomOrder()->first();
     }
      
   }

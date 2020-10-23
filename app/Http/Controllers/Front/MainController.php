@@ -26,44 +26,45 @@ class MainController extends Controller
 
 
         $data['year'] = Carbon::now()->year;
-        $data['newsione'] = Post::where(['comming_soon' => 0])->latest()->take(10)->get();
-        $data['newseries'] = Post::where(['type' => 'series', 'comming_soon' => 0])->latest()->take(10)->get();
-        $data['newyear'] = Post::where(['year' => $data['year'], 'comming_soon' => 0])->latest()->take(10)->get();
+        $data['newsione'] = Post::where(['comming_soon' => 0])->latest()->take(7)->get();
+        $data['newseries'] = Post::where(['type' => 'series', 'comming_soon' => 0])->latest()->take(7)->get();
+        $data['newyear'] = Post::where(['year' => $data['year'], 'comming_soon' => 0])->latest()->take(7)->get();
 
 
-        $data['newmovies'] = Post::where(['type' => 'movies', 'comming_soon' => 0])->latest()->take(10)->get();
-        $data['sliders'] = Slider::latest()->get();
+        $data['newmovies'] = Post::where(['type' => 'movies', 'comming_soon' => 0])->latest()->take(7)->get();
+        $data['slider'] = Slider::inRandomOrder()->first();
         $data['adverts'] = AdvertImage::orderBy('created_at', 'DESC')->take(12)->get();
         $data['updated_series'] = Post::where('comming_soon', 0)->where('type', '!=', 'movies')->whereHas('episodes', function ($q) {
             $q->where('created_at', '>', Carbon::now()->subDays(30));
-        })->latest()->take(10)->get();
-        $data['top250'] = Post::where('comming_soon', 0)->where('top_250', '!=', null)->orderBy("top_250", "desc")->take(10)->get();
+        })->latest()->take(7)->get();
+        $data['top250'] = Post::where('comming_soon', 0)->where('top_250', '!=', null)->orderBy("top_250", "desc")->take(7)->get();
         $data['animations'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Animation');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
 
-        $data['documentaries'] =  Post::where(['type' => 'documentary', 'comming_soon' => 0])->inRandomOrder()->take(10)->get();
+        $data['documentaries'] =  Post::where(['type' => 'documentary', 'comming_soon' => 0])->inRandomOrder()->take(7)->get();
         $data['actions'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Action');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
         $data['latestdoble'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Double');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
         $data['scifis'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Sci-Fi');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
         $data['horrors'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Horror');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
         $data['comedies'] = Post::whereHas('categories', function ($q) {
             $q->where('latin', 'Comedy');
-        })->whereType('movies')->inRandomOrder()->take(10)->get();
-        $data['blogs'] = Blog::latest()->take(10)->get();
+        })->whereType('movies')->inRandomOrder()->take(7)->get();
+        $data['blogs'] = Blog::latest()->take(6)->get();
 
-        $data['collections'] = Collection::has('posts')->inRandomOrder()->take(12)->get();
+        $data['collections'] = Collection::has('posts')->inRandomOrder()->take(6)->get();
         $data['title'] = 'صفحه اصلی';
 
         // dd($data);
+        
         return view('Front.index', $data);
     }
 

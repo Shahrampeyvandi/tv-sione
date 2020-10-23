@@ -1,4 +1,4 @@
-@if (count($sliders))
+
 <style>
     .shadow-bottom-slider {
     background: linear-gradient(to top,rgba(15, 15, 15, 0.726), rgba(255, 255, 255, 0));
@@ -56,6 +56,22 @@
 .fadeslick button.custom-prev.slick-arrow {
     left: 119px;
 }
+
+button.owl-prev{
+        color: white !important;
+    font-size: 80px !important;
+    position: absolute;
+    left: 190px;
+    top: 65%;
+}
+
+button.owl-next{
+        color: white !important;
+    font-size: 80px !important;
+    position: absolute;
+    left: 96px;
+    top: 65%;
+}
 /* .slick-next {
     left: 64px !important;
     right: auto;
@@ -66,11 +82,10 @@
 </style>
 <section class="container-fluid px-0 d-none d-md-block">
 
-    <div class="fadeslick">
-        @foreach ($sliders as $slider)
+       
 
         <div class="">
-            <img class="slider-back-img w-100" src="{{asset($slider->image)}}" alt="{{$slider->post->title}}">
+            <img class="slider-back-img w-100" style="height: 100vh;object-fit: cover" src="{{asset($slider->image)}}" alt="{{$slider->post->title}}">
             <div class="shadow-bottom-slider"></div>
             <div class="details" >
                
@@ -130,9 +145,8 @@
             </div>
         </div>
 
-        @endforeach
+       
 
-    </div>
+   
 
 </section>
-@endif

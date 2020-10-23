@@ -52,6 +52,7 @@ class LoginController extends Controller
     public function Verify(Request $request)
     {
 
+       
         $rules = array(
             'mobile'             => 'required',
             'password'         => 'required | min:8',
@@ -82,7 +83,6 @@ class LoginController extends Controller
                 auth()->logoutOtherDevices($request->password);
                 $expire = Carbon::parse(Auth::user()->expire_date)->timestamp;
                 $now = Carbon::now()->timestamp;
-
                 $data = array(
                     "phone" => $request->mobile,
                     "password" => $request->password
@@ -98,7 +98,8 @@ class LoginController extends Controller
                 if ($expire > $now) {
                     return redirect()->route('MainUrl');
                 } else {
-                    return redirect()->route('S.SiteSharing');
+                     return view('Front.goto-website');
+                   
                 }
             } else {
                 return Redirect::route('login')->withErrors(['رمز عبور اشتباه است']);
